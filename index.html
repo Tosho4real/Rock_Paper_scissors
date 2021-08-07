@@ -31,7 +31,7 @@
       function singleRound(playerChoice, computerSelection) {
         if (playerChoice === computerSelection) {
           console.log("Tie");
-          console.log(" ");// for a new line so the game apears more clean
+          console.log(" "); // for a new line so the game apears more clean
         } else if (
           // all posible outcomes of the computer winning
           (playerChoice === "rock" && computerSelection === "scissors") ||
@@ -42,7 +42,7 @@
           playerScore++; //to increment the players score if he or she takes a point in each round
           console.log(`player score: ${playerScore}`);
           console.log(`computer score: ${computerScore}`);
-          console.log(" ");// for new line space to appear more clean
+          console.log(" "); // for new line space to appear more clean
         } else if (
           // all possible outcom of the player winning
           (computerSelection === "rock" && playerChoice === "scissors") ||
@@ -59,7 +59,7 @@
           console.log(
             ` invalid input: you have to choose between "rock" , "paper" or "scissors"`
           );
-          console.log(" ");// new line
+          console.log(" "); // new line
         }
       }
       // This function runs the singleRound 5 times and declears the winner
@@ -68,6 +68,7 @@
           singleRound(playerSelection(), computerPlay());
         }
         if (computerScore > playerScore) return "computer wins";
+        else if (computerScore === playerScore) return "Draw  : no one wins";
         else if (computerScore < playerScore) return "You win";
       }
     </script>
