@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock_Paper_Scissors</title>
+  </head>
+  <body>
+    <script>
+        document.write("Open your Browser console")
+      /* ComputerPlay() : This function makes a random guess for the computer using Math methods to select any of the computerChoices Array*/
+      function computerPlay() {
+        let computerChoices = ["rock", "paper", "scissors"]; // this array holds all the options
+        let i = Math.floor(Math.random() * 3); // for picking random choices for the computer  
+        let randomSelection = computerChoices[i];
+        return randomSelection;
+      }
+      /* PlayerSelection returns a string in lowercase */
+      function playerSelection() {
+        let selection = prompt("Type your choice here:");
+        selection = selection.toLowerCase(); // making sure the input is no longer case sensitive using toLowerCase method
+        return selection;
+      }
+      let computerScore = 0; // to keep track of computer overall score
+      let playerScore = 0; // to keep track of player overall score
+// This fuction who wins a single round
+
+      function singleRound(playerChoice, computerSelection) {
+        if (playerChoice === computerSelection) {
+          console.log("Tie");
+        } else if ( // all posible outcomes of the computer winning
+          (playerChoice === "rock" && computerSelection === "scissors") ||
+          (playerChoice === "paper" && computerSelection === "rock") ||
+          (playerChoice === "scissors" && computerSelection === "paper")
+        ) {
+          console.log("You won");
+          playerScore++ //to increment the players score if he or she takes a point in each round
+          console.log(`player score: ${playerScore}`);
+          console.log(`computer score: ${computerScore}\n`);
+        } else if (// all possible outcom of the player winning
+          (computerSelection === "rock" && playerChoice === "scissors") ||
+          (computerSelection === "paper" && playerChoice === "rock") ||
+          (computerSelection === "scissors" && playerChoice === "paper")
+        ) {
+          console.log("Computer won");
+          computerScore++; // to increment the score of computer if it takes a point in each round
+          console.log(`player score: ${playerScore}`);
+          console.log(`computer score: ${computerScore} \n`);
+        } else { // when an invallid word is inputed 
+          console.log(
+            ` invalid input: you have to choose between "rock" , "paper" or "scissors"`
+          );
+        }
+      }
+      // This function runs the singleRound 5 times and declears the winner
+      function game() {
+            for(let i = 0; i < 5; i++) 
+                {
+                    singleRound(playerSelection(), computerPlay());
+                }
+        if (computerScore > playerScore)
+                return "computer wins"
+        else if (computerScore < playerScore)
+                return "You win"
+      }
+      
+    </script>
+  </body>
+</html>
