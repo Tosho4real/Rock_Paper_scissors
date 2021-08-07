@@ -64,6 +64,8 @@
       }
       // This function runs the singleRound 5 times and declears the winner
       function game() {
+        computerScore = 0;
+        playerScore = 0;
         for (let i = 0; i < 5; i++) {
           singleRound(playerSelection(), computerPlay());
         }
